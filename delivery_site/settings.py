@@ -122,5 +122,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = '/login/profile'
+LOGOUT_REDIRECT_URL = '/login'
+LOGIN_URL = '/login'
 
 #AUTH_USER_MODEL = 'login_app.Login'

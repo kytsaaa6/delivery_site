@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
 from django.shortcuts import render
@@ -10,11 +11,8 @@ class IndexView(View):
         print(request.user)
         return render(request, 'index.html', context=context)
 
-
+@login_required
 def profile(request):
-    if not request.user.is_authenticated:
-        data = {'username': request.user, 'is_authenticated': request.user.is_authenticated}
-    else:
-        data = {'last_login': request.user.last_login, 'username': request.user.username,
-                'password': request.user.password, 'is_authenticated': request.user.is_authenticated}
-    return render(request, 'profile.html', context={'data': data})
+    data = {'last_login': request.user.last_login, 'username': request.user.username,
+            'password': request.user.password, 'is_authenticated': request.user.is_authenticated}
+    return render(request, 'login_app/profile.html', context={'data': data})
