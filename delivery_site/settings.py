@@ -37,8 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'login_app',
-    'django_extensions'
+    'django_extensions',
+#    'django.contrib.sites',
+#    'allauth',
+#    'allauth.account',
+#    'allauth.socialaccount',
+#    'login_app',
+    'User',
 ]
 
 MIDDLEWARE = [
@@ -82,7 +87,10 @@ DATABASES = {
     }
 }
 
-
+#AUTHENTICATION_BACKENDS = (
+#    'django.contrib.auth.backends.ModelBackend',
+#    'allauth.account.auth_backends.AuthenticationBackend',
+#)
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -121,8 +129,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/login/profile'
-LOGOUT_REDIRECT_URL = '/login'
-LOGIN_URL = '/login'
+LOGIN_REDIRECT_URL = '/user/success'
+LOGOUT_REDIRECT_URL = '/user'
+LOGIN_URL = '/user'
 
-#AUTH_USER_MODEL = 'login_app.Login'
+#AUTH_USER_MODEL = 'User.Account'

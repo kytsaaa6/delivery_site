@@ -16,3 +16,4 @@ def profile(request):
     data = {'last_login': request.user.last_login, 'username': request.user.username,
             'password': request.user.password, 'is_authenticated': request.user.is_authenticated}
     return render(request, 'login_app/profile.html', context={'data': data})
+
