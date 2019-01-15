@@ -14,7 +14,6 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'),)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -45,6 +44,7 @@ INSTALLED_APPS = [
 #    'login_app',
     'User',
     'account',
+    'store_app',
 ]
 
 MIDDLEWARE = [
@@ -62,7 +62,7 @@ ROOT_URLCONF = 'delivery_site.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,8 +126,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/account/signup_ok'
-LOGOUT_REDIRECT_URL = '/account/login'
-LOGIN_URL = '/account/login'
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+#LOGIN_REDIRECT_URL = '/account/signup_ok'
+#LOGOUT_REDIRECT_URL = '/account/login'
+#LOGIN_URL = '/account/login'
 
 #AUTH_USER_MODEL = 'User.Account'
