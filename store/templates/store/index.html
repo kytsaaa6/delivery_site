@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>매장 리스트</title>
+</head>
+<body>
+    {% for store in data %}
+    <a href="{% url 'detail' store.id %}"> <img src = "{{ store.img.url }}" ><br>
+        {{ store.name }} </a>
+    {% endfor %}
+
+
+</body>
+
+</html>
+

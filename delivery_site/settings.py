@@ -42,9 +42,12 @@ INSTALLED_APPS = [
 #    'allauth.account',
 #    'allauth.socialaccount',
 #    'login_app',
-    'User',
-    'account',
-    'store_app',
+#    'User',
+#    'account',
+#    'store_app',
+    'main',
+    'store',
+    'order',
 ]
 
 MIDDLEWARE = [
@@ -128,7 +131,7 @@ STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #LOGIN_REDIRECT_URL = '/account/signup_ok'
 #LOGOUT_REDIRECT_URL = '/account/login'

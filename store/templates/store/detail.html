@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>메뉴 리스트</title>
+</head>
+<body>
+
+    {% for menu in data %}
+    <a href="{% url 'storemenu' store.id menu %}" target="_blank">  <img src = "{{ menu.img.url }}" > <br> </a>
+
+         {{ menu.name }} {{ menu.price }}원
+    {% endfor %}
+
+
+</body>
+
+</html>

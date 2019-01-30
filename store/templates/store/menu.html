@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+</head>
+<body>
+    {% for menu in data %}
+    <img src=" {{ menu.img.url }}" > <br>
+    {{menu.name}} <br>
+    {{menu.price}}
+    {% endfor %}
+
+
+</body>
+</html>
