@@ -1,7 +1,7 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import get_object_or_404,render,redirect
 from django.http import HttpResponse
 from .models import Store, Menu
-from .forms import StoreForm
+from .forms import StoreForm, MenuForm
 
 
 def storeList(request):
@@ -11,15 +11,26 @@ def storeList(request):
 
 def storeDetail(request, store_id):
     if request.method == 'GET':
-        data = Menu.objects.all()
         store = Store.objects.get(id=store_id)
-    return render(request, 'store/detail.html', {'data': data, 'store':store})
+        menuz = store.menu_set.all
+
+        context = {
+            'store' : store,
+            'menuz' : menuz
+        }
+    return render(request, 'store/detail.html', context)
 
 def storeMenu(request, store_id, menu):
     if request.method == 'GET':
-        data = Menu.objects.all()
+        store = Store.objects.get(id=store_id)
+        data = Menu.objects.filter(store=store, name=menu)
 
-    return render(request, 'store/menu.html', {'data': data})
+        context = {
+            'data' : data,
+            'store' : store
+        }
+
+    return render(request, 'store/menu.html', context)
 
 def storeCreate(request):
     if request.method == 'POST':

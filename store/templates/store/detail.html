@@ -3,13 +3,12 @@
     <title>메뉴 리스트</title>
 </head>
 <body>
+        {% for menu in menuz %}
 
-    {% for menu in data %}
-    <a href="{% url 'storemenu' store.id menu %}" target="_blank">  <img src = "{{ menu.img.url }}" > <br> </a>
+        <a href="{% url 'menulist' store.id menu %}" target="_blank">  <img src = "{{ menu.img.url }}" > <br> </a>
 
-         {{ menu.name }} {{ menu.price }}원
-    {% endfor %}
-
+        {{ menu.name }} {{ menu.price }}원
+        {% endfor %}
 
 </body>
 

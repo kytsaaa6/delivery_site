@@ -5,6 +5,9 @@
     <title>Title</title>
 </head>
 <body>
+    {{ store }} <br>
+    주문상품 : {{ data.name }} 주문수량 : {{ data.count }} 총 금액 : {{ data.total }}
 
+    <a href="{% url 'order' %}" target="_blank"> <button type="submit" class="btn btn-primary"> 주문 하기 </button>
 </body>
 </html>
